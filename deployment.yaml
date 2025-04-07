@@ -25,8 +25,8 @@ metadata:
   name: java-app-service
 spec:
   type: LoadBalancer
+  ports:
+    - port: 80           # This is what external users hit
+      targetPort: 8000   # This MUST match containerPort
   selector:
     app: java-app
-  ports:
-    - port: 80
-      targetPort: 8080
