@@ -12,11 +12,11 @@ spec:
       labels:
         app: java-app
     spec:
-      containers:
-      - name: java-container
-        image: bhanuprasad210/java-app:latest
-        ports:
-        - containerPort: 8080
+      containers:  # <-- This line was not properly indented
+        - name: java-container
+          image: bhanuppp/java-app:latest
+          ports:
+            - containerPort: 8000
 
 ---
 apiVersion: v1
@@ -25,8 +25,8 @@ metadata:
   name: java-app-service
 spec:
   type: LoadBalancer
-  ports:
-    - port: 80           # This is what external users hit
-      targetPort: 8000   # This MUST match containerPort
   selector:
     app: java-app
+  ports:
+    - port: 80
+      targetPort: 8000
