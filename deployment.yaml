@@ -25,8 +25,7 @@ metadata:
   name: java-app-service
 spec:
   type: LoadBalancer
-  selector:
-    app: java-app
   ports:
     - port: 80
       targetPort: 8000
+
